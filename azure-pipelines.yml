@@ -42,8 +42,11 @@ steps:
       ls -ld /home/vsts/work/_tasks/
       chmod -R 777 /home/vsts/work/_tasks
       ls -ld /home/vsts/work/_tasks/
+      docker-compose up -d allure allure-ui
 
 - task: AllureGenerate@1
   inputs:
     resultsDir: 'target/allure-results'
     targetDir: 'allure-report/$(Build.BuildNumber)'
+
+    
